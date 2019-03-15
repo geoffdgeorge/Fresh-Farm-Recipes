@@ -5,12 +5,17 @@ $(document).ready(function() {
         const zip = $('#zip-code-input').val();
         const queryURL = 'https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=' + zip
 
+        $('#main-container').find('#markets-div').remove();
+
         $.ajax({
             type: 'GET',
             url: queryURL,
             success: function(response) {
                 const results = response;
                 let newMap
+                const newMarketDisplayDiv = $('<div>').addClass('row d-flex flex-row justify-content-center mb-4').attr('id', 'markets-div');
+                const newMapDiv = $('<div>').addClass('col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 mt-4 rounded border').attr('id', 'market-map').css('height', '400px');
+                const newMarketsDiv = $('<div>').addClass('p-2 col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 mt-4 rounded border').attr('id', 'market-display');
                 const secondQueryURL = 'https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=' + results.results[0].id
                 $.ajax({
                     type: 'GET',
@@ -24,7 +29,7 @@ $(document).ready(function() {
                         const lon = lonLatChop[0];
                         const lat = latChop[1];
 
-                        newMap = L.map('market-map').setView([lon, lat], 10);
+                        newMap = L.map('market-map').setView([lon, lat], 11);
 
                         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -38,8 +43,8 @@ $(document).ready(function() {
                 for(i = 0; i < results.results.length; i++) {
                     const marketID = results.results[i].id;
                     const marketName = results.results[i].marketname.substring(4);
-                    const newDiv = $('<div>');
-                    const newName = $('<h3>');
+                    const newDiv = $('<div>').addClass('border-bottom border-success p-2');
+                    const newName = $('<h4>');
                     newName.text(marketName);
                     newName.appendTo(newDiv);
 
@@ -63,15 +68,18 @@ $(document).ready(function() {
                             const marketSchedule = secondaryResults.marketdetails.Schedule;
                             const newAddress = $('<p>');
                             const newSchedule = $('<p>');
-                            newAddress.text(marketAddress);
-                            newSchedule.html(marketSchedule);
+                            newAddress.html('<b>Address:</b> ' + marketAddress);
+                            newSchedule.html('<b>Schedule:</b><br>' + marketSchedule);
                             newAddress.appendTo(newDiv);
                             newSchedule.appendTo(newDiv);
 
                             marker.bindPopup(marketName + '<br>' + marketAddress);
                         }
                     })
-                    newDiv.appendTo($('#market-display'));
+                    newDiv.appendTo(newMarketsDiv);
+                    newMapDiv.appendTo(newMarketDisplayDiv);
+                    newMarketsDiv.appendTo(newMarketDisplayDiv);
+                    newMarketDisplayDiv.appendTo($('#main-container'))
                 }
             }
         })
