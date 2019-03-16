@@ -1,4 +1,84 @@
 $(document).ready(function() {
+    function displayRecipes() {
+        event.preventDefault();
+        $('#recipe-display').empty();
+        // queryURL is the url we'll use to query the API
+        let veg1in = $('#ingredient1').val().trim();
+        let veg2in = $('#ingredient2').val().trim(); 
+        let veg3in = $('#ingredient3').val().trim();
+        let veg1 = "";
+        let veg2 = ""; 
+        let veg3 = "";
+      
+      
+        //alert("Congrats - we are at line 15");
+          if (veg1in !== "" && veg2in !== ""){
+              
+              veg1 = veg1in + ",";
+              //alert("Veg 2 DNE");
+          }
+          else if (veg1in !== "" && veg2in === ""){
+              
+            veg1 = veg1in;
+          }
+      
+          if (veg2in !== "" && veg3in !== ""){
+              
+              veg2 = veg2in + ",";
+          }
+          else if (veg2in !== "" && veg3in === ""){
+              
+              veg2 = veg2in;
+              
+          }
+      
+      //alert("Congrats - we are at line 29");
+        const recipeSearch = "https://api.edamam.com/search?q=" + veg1 + veg2 + veg3 + "&app_id=a653f161&app_key=ff7f8bea67da7c853af3604e42724627&from=0&to=4";
+      
+        // Begin building an object to contain our API call's query parameters
+        // Set the API key
+        $.ajax({
+          url: recipeSearch,
+          method: "GET"
+        }).then(function(response) {
+      
+          // Creating elements to hold the stuff         //var pOne = $("<p>").text("Rating: " + rating);
+          for (let j=0; j < response.hits.length; j++){
+      
+          let recipeName = response.hits[j].recipe.label;
+          let recipeImg = response.hits[j].recipe.image;
+          let recipeURL = response.hits[j].recipe.url;
+      
+          const recipeDiv = $('<div class="card mb-3" style="max-width: 540px;">');
+          const recipeImageWrapper1 = $('<div class="row no-gutters">');
+          //Directly append img html using .html();
+          const recipeImageWrapper2 = $('<div class="col-md-4">');
+          //Append this to recipeWrapper
+          const recipeTextWrapper1 = $('<div class="col-md-8">');
+          const recipeTextWrapper2 = $('<div id="recipe-name">');
+      
+          const recipeTitle = $(`<h5 class="card-title">${recipeName}</h5>`);
+          const recipeImage = $(`<img src=${recipeImg} class='card-img'>`);
+          const recipeLink = $(`<a target="_blank" href=${recipeURL} class="btn btn-primary">Get Recipe</a>`);
+      
+      
+           // Appending the stuff
+           recipeDiv.append(recipeImageWrapper1);
+              recipeImageWrapper1.append(recipeImageWrapper2);
+                  recipeImageWrapper2.append(recipeImage);
+           recipeDiv.append(recipeTextWrapper1);
+              recipeImageWrapper1.append(recipeTextWrapper2);
+                  recipeTextWrapper2.append(recipeTitle);
+                      recipeTextWrapper2.append(recipeLink);
+      
+           
+           $("#recipe-display").append(recipeDiv);
+          }     
+      });
+      }
+$(document).on("click", "#ingredient-submit", displayRecipes);
+
+/* Market API Call and Click Function */
 
     function marketQuery() {
         event.preventDefault();
