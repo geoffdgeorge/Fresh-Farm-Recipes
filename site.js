@@ -49,7 +49,7 @@ $(document).ready(function() {
           let recipeImg = response.hits[j].recipe.image;
           let recipeURL = response.hits[j].recipe.url;
       
-          const recipeDiv = $('<div class="card" style="width: 12rem;">');
+          const recipeDiv = $('<div class="card mb-4" style="width: 12rem;">');
         //   const recipeImageWrapper1 = $('<div class="row no-gutters">');
           //Directly append img html using .html();
         //   const recipeImageWrapper2 = $('<div class="col-md-4">');
@@ -92,7 +92,7 @@ $(document).on("click", "#ingredient-submit", displayRecipes);
                 const results = response;
                 let newMap
                 const newMarketDisplayDiv = $('<div>').addClass('row d-flex flex-row justify-content-center mb-4').attr('id', 'markets-div');
-                const newMapDiv = $('<div>').addClass('col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 mt-4 rounded border').attr('id', 'market-map').css('height', '400px');
+                const newMapDiv = $('<div>').addClass('col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 rounded border').attr('id', 'market-map').css('height', '400px');
                 const newMarketsDiv = $('<div>').addClass('p-2 col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 mt-4 rounded border').attr('id', 'market-display');
                 const secondQueryURL = 'https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=' + results.results[0].id
                 $.ajax({
@@ -150,7 +150,7 @@ $(document).on("click", "#ingredient-submit", displayRecipes);
                             if(marketSchedule) {
                                 newSchedule.html('<b>Schedule:</b><br>' + marketSchedule);
                             } else {
-                                newSchedule.html('<b>Schedule:</b><br>Schedule not availble.');
+                                newSchedule.html('<b>Schedule:</b><br>Schedule not available.');
                             }
                             
                             newAddress.appendTo(newDiv);
