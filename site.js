@@ -72,7 +72,6 @@ $(document).ready(function() {
                             newSchedule.html('<b>Schedule:</b><br>' + marketSchedule);
                             newAddress.appendTo(newDiv);
                             newSchedule.appendTo(newDiv);
-
                             marker.bindPopup(marketName + '<br>' + marketAddress);
                         }
                     })
