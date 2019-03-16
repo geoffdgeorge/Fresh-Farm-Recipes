@@ -65,13 +65,19 @@ $(document).ready(function() {
                             const marker = L.marker([lon, lat]).addTo(newMap);
 
                             const marketAddress = secondaryResults.marketdetails.Address;
-                            const marketSchedule = secondaryResults.marketdetails.Schedule;
+                            const marketSchedule = secondaryResults.marketdetails.Schedule.replace(/( <br> <br> <br> )/g,'').replace(/(;<br> <br> <br> )/g,'').replace(/(;<br> <br> )/g,'');
                             const newAddress = $('<p>');
                             const newSchedule = $('<p>');
                             newAddress.html('<b>Address:</b> ' + marketAddress);
-                            newSchedule.html('<b>Schedule:</b><br>' + marketSchedule);
+                            if(marketSchedule) {
+                                newSchedule.html('<b>Schedule:</b><br>' + marketSchedule);
+                            } else {
+                                newSchedule.html('<b>Schedule:</b><br>Schedule not availble.');
+                            }
+                            
                             newAddress.appendTo(newDiv);
                             newSchedule.appendTo(newDiv);
+
                             marker.bindPopup(marketName + '<br>' + marketAddress);
                         }
                     })
