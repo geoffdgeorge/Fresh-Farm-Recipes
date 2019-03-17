@@ -49,21 +49,24 @@
       </div>
       <div class="row d-flex flex-row justify-content-center">
           <div class="col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 mt-4 pr-0 pl-0 d-flex flex-row flex-wrap justify-content-around" id="recipe-display">
-            
+            <!-- Leave this empty. It will be populated by the API call to the Edamam API. -->
           </div>
       </div>
       <div class="row d-flex flex-row justify-content-center">
           <form class="p-2 col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 mb-4 rounded border" id="zip-form">
             <div class="form-group">
-              <label for="zip-code-input" class="ing-label">Find your closest markets!</label>
+              <label for="zip-code-input" class="zip-label">Find your closest markets!</label>
               <input type="text" maxlength="5" class="form-control" id="zip-code-input" for="zip-code-submit" placeholder="Enter your zip code">
             </div>
             <button type="submit" id="zip-code-submit" class="btn btn-primary">Submit</button>
           </form>
       </div>
-      
+      <div class="row d-flex flex-row justify-content-center" id="markets-div">
+        <!-- Leave this empty. It will be populated by the API call to the USDA API. -->
+      </div>
     </div>
 
+    <!-- Room for footer here -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
