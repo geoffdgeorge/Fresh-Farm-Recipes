@@ -111,7 +111,7 @@ $(document).ready(function() {
 
                         let newMap
                         const newMapDiv = $('<div>').addClass('col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 rounded border').attr('id', 'market-map').css('height', '400px');
-                        const newMarketsDiv = $('<div>').addClass('p-2 col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 mt-4 rounded border').attr('id', 'market-display');
+                        const newMarketsDiv = $('<div>').addClass('p-2 col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 mt-4 mb-4 rounded border').attr('id', 'market-display');
                         const secondQueryURL = 'https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=' + results.results[0].id
 
                         /* Inspiration for nested AJAX call was taken from the following source: https://stackoverflow.com/questions/10089447/jquery-ajax-request-inside-ajax-request */
