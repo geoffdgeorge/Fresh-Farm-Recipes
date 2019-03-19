@@ -160,6 +160,16 @@ $(document).ready(function() {
                         newDiv.appendTo(newMarketsDiv);
                         newMapDiv.appendTo($('#markets-div'));
                         newMarketsDiv.appendTo($('#markets-div'));
+
+                        const map = newMapDiv.position().top;
+                           
+                        $('html, body').animate(
+                            {
+                            scrollTop: map
+                            },
+                            900
+                        );
+                        
                     }
                 }
             })
