@@ -75,6 +75,16 @@ $(document).ready(function() {
     /* Market API Call and Click Function */
     function marketQuery() {
         event.preventDefault();
+
+        const zipBottom = $('#zip-form').position().top;
+                           
+        $('html, body').animate(
+            {
+            scrollTop: zipBottom
+            },
+            900
+        );
+
         const zip = $('#zip-code-input').val();
         
         if(zip.length === 5) {
@@ -160,16 +170,6 @@ $(document).ready(function() {
                         newDiv.appendTo(newMarketsDiv);
                         newMapDiv.appendTo($('#markets-div'));
                         newMarketsDiv.appendTo($('#markets-div'));
-
-                        const map = newMapDiv.position().top;
-                           
-                        $('html, body').animate(
-                            {
-                            scrollTop: map
-                            },
-                            900
-                        );
-                        
                     }
                 }
             })
