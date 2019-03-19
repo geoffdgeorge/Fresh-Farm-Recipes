@@ -64,7 +64,7 @@ $(document).ready(function() {
                 }
             
                 const recipeDiv = $('<div class="card mb-4" style="width: 12rem;">');
-                const recipeTextWrapper1 = $('<div class="card-body text-center">');
+                const recipeTextWrapper1 = $('<div class="card-body d-flex flex-column justify-content-center align-items-center text-center">');
                 const recipeSite = $(`<p class='small'>(${baseURL})</p>`)
                 const recipeTitle = $(`<h5 class="card-title pb-1 mb-1 border-bottom border-dark">${recipeName}</h5>`);
                 const recipeImage = $(`<img src=${recipeImg} class='card-img-top'>`);

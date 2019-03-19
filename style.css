@@ -47,6 +47,10 @@ body {
         background: rgba(255, 255, 255, .7);
     }
 
+    #zip-graph {
+        background: rgba(255, 255, 255, .7);
+    }
+
     /* Market Display Styling */
 
     #market-map {
@@ -57,6 +61,20 @@ body {
         background: rgba(255, 255, 255, .7);
     }
 
+    /* Footer Styling */
+
+    .footer {
+        height: 30px;
+        width: 100%;
+        background-color: #E6E6E5;
+     }
+
+     #footer-text {
+         display: inline-block;
+         font-size: 1rem;
+         color: black;
+     }
+
 }
 
 @media only screen and (min-width: 480px) {
@@ -64,20 +82,6 @@ body {
     .heading {
         font-size: 5rem;
     }
-    .footer {
-        left: 0;
-        bottom: 0;
-        height: 30px;
-        width: 100%;
-        background-color: #E6E6E5;
-        text-align: center; 
-     }
-     #footer-text {
-         display: inline-block;
-         font-size: 1rem;
-         color: black;
-         
-     }
 
 }
 

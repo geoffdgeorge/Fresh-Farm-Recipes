@@ -28,8 +28,8 @@
         <div class="p-2 col-xs-12 col-sm-10 col-md-6 col-lg-6 mt-4 rounded border" id="intro-graph">
           <h4>Fresh produce is great.<br>But what will you make from it?</h4>
           <p>Farmer's markets. Co-ops. Weekly deliveries right to your door from a CSA. There's a lot of ways to get fresh veggies, fruits, meats, and more these days. The hard part's deciding how to prepare it.</p>  
-          <p>Farm Fresh Recipes takes (most of) the decision-making out of your hands. Just enter any three fresh ingredients, and you'll get an array of dishes, their ingredients, what they look like, and links with info on how to prepare them.</p>
-          <p>And, if you're low on goods the handy farmer's market locator below will point you to the nearest places to replenish your supply.</p>
+          <p>Farm Fresh Recipes takes (most of) the decision-making out of your hands. Just enter any three fresh ingredients, and you'll get five great dishes matched to those ingredients.</p>
+          <p class="mb-0">You'll also get the source for each recipe, a look at the finished products, and links with info on how to prepare each one. Find a meal that suits your needs today!</p>
         </div>
         <form class="p-2 col-xs-12 col-sm-10 col-md-4 col-lg-4 mt-4 rounded border" id="ingredient-form">
           <div class="form-group">
@@ -52,21 +52,25 @@
             <!-- Leave this empty. It will be populated by the API call to the Edamam API. -->
           </div>
       </div>
-      <div class="row d-flex flex-row justify-content-center">
-          <form class="p-2 col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 mb-4 rounded border" id="zip-form">
-            <div class="form-group">
-              <label for="zip-code-input" class="zip-label">Find your closest markets!</label>
-              <input type="text" maxlength="5" class="form-control" id="zip-code-input" for="zip-code-submit" placeholder="Enter your zip code">
-            </div>
-            <button type="submit" id="zip-code-submit" class="btn btn-primary">Submit</button>
-          </form>
+      <div class="row d-flex flex-row-reverse justify-content-center justify-content-md-around justify-content-lg-around justify-content-xl-around"> 
+        <div class="p-2 col-xs-12 col-sm-10 col-md-6 col-lg-6 mb-4 rounded border" id="zip-graph">
+          <h4>Low on supply?</h4>
+          <p class='mb-0'>If you've found your recipe but you're low on goods, our handy farmer's market locator will point you to the nearest USDA-registered market to replenish your supply.</p>
+        </div>
+        <form class="p-2 col-xs-12 col-sm-10 col-md-4 col-lg-4 mb-4 rounded border" id="zip-form">
+          <div class="form-group">
+            <label for="zip-code-input" class="zip-label">Find your closest markets!</label>
+            <input type="text" maxlength="5" class="form-control" id="zip-code-input" for="zip-code-submit" placeholder="Enter your zip code">
+          </div>
+          <button type="submit" id="zip-code-submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
       <div class="row d-flex flex-row justify-content-center" id="markets-div">
         <!-- Leave this empty. It will be populated by the API call to the USDA API. -->
       </div>
     </div>
     <!-- Room for footer here -->
-    <div class="footer mt-4">
+    <div class="footer container-fluid mt-4 mr-0 d-flex flex-row justify-content-center align-items-center w-100">
       <span id=footer-text>Copyright © The Boot </span>
     </div>
     
