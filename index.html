@@ -14,15 +14,17 @@
       <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
             <link rel="stylesheet" href="style.css">
   </head>
+
   <body>
     <header class="container p-4 p-sm-0 p-md-0 p-lg-0 p-xl-0">
       <div class="row d-flex flex-row justify-content-center" id="heading-logo">
           <div class="col-12 d-flex flex-column align-items-center">
-            <h1 class="heading m-0">Fresh-Farm Recipes</h1>
+            <h1 class="heading m-0">Fresh Farm Recipes</h1>
             <img class="logo" src="Images/image-2019-03-16.png">
           </div>
       </div>
     </header>
+
     <div class="container pl-4 pr-4 p-sm-0 p-md-0 p-lg-0 p-xl-0" id="main-container">
       <div class="row d-flex flex-row-reverse justify-content-center justify-content-md-around justify-content-lg-around justify-content-xl-around"> 
         <div class="p-2 col-xs-12 col-sm-10 col-md-6 col-lg-6 mt-4 rounded border" id="intro-graph">
@@ -33,7 +35,7 @@
         </div>
         <form class="p-2 col-xs-12 col-sm-10 col-md-4 col-lg-4 mt-4 rounded border" id="ingredient-form">
           <div class="form-group">
-            <label for="ingredient1" class="ing-label">Primary ingredient</label>
+            <label for="ingredient1" class="ing-label" id='primary-ing'>Primary ingredient</label>
             <input type="text" for="ingredient-submit" class="form-control" id="ingredient1" placeholder="i.e. chicken">
           </div>
           <div class="form-group">
@@ -55,7 +57,7 @@
       <div class="row d-flex flex-row-reverse justify-content-center justify-content-md-around justify-content-lg-around justify-content-xl-around"> 
         <div class="p-2 col-xs-12 col-sm-10 col-md-6 col-lg-6 mb-4 rounded border" id="zip-graph">
           <h4>Low on supply?</h4>
-          <p class='mb-0'>If you've found your recipe but you're low on goods, our handy farmer's market locator will point you to the nearest USDA-registered market to replenish your supply.</p>
+          <p class='mb-0'>If you've found your recipe but you're low on goods, our handy farmer's market locator will point you to the nearest USDA-registered market to replenish your stock.</p>
         </div>
         <form class="p-2 col-xs-12 col-sm-10 col-md-4 col-lg-4 mb-4 rounded border" id="zip-form">
           <div class="form-group">
@@ -69,7 +71,7 @@
         <!-- Leave this empty. It will be populated by the API call to the USDA API. -->
       </div>
     </div>
-    <!-- Room for footer here -->
+    
     <div class="footer container-fluid mt-4 mr-0 d-flex flex-row justify-content-center align-items-center w-100">
       <span id=footer-text>Copyright © The Boot </span>
     </div>
