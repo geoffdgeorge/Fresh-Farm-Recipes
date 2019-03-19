@@ -41,31 +41,43 @@ $(document).ready(function() {
             url: recipeSearch,
             method: "GET"
         }).then(function(response) {
-      
+            
             // Creating elements to hold the stuff         //var pOne = $("<p>").text("Rating: " + rating);
             for (let j=0; j < response.hits.length; j++){
         
-            let recipeName = response.hits[j].recipe.label;
-            let recipeImg = response.hits[j].recipe.image;
-            let recipeURL = response.hits[j].recipe.url;
-        
-            const recipeDiv = $('<div class="card mb-4" style="width: 12rem;">');
-            const recipeTextWrapper1 = $('<div class="card-body text-center">');
-        
-            const recipeTitle = $(`<h5 class="card-title">${recipeName}</h5>`);
-            const recipeImage = $(`<img src=${recipeImg} class='card-img-top'>`);
-            const recipeLink = $(`<a target="_blank" href=${recipeURL} class="btn btn-primary">Get Recipe</a>`);
-        
-        
-            // Appending the stuff
-            recipeDiv.append(recipeImage);
-            recipeDiv.append(recipeTextWrapper1);
-                recipeTextWrapper1.append(recipeTitle);
-            recipeDiv.append(recipeLink) 
-            
+                let recipeName = response.hits[j].recipe.label;
+                let recipeImg = response.hits[j].recipe.image;
+                let recipeURL = response.hits[j].recipe.url;
 
+                const httpChop = recipeURL.split('//');
+                const wwwChop = httpChop[1].split('www.');
+                let baseURL;
+
+                if(wwwChop[0]) {
+                    const frontChop = wwwChop[0];
+                    const backChop = frontChop.split('/');
+                    baseURL = backChop[0];
+                } else {
+                    const frontChop = wwwChop[1];
+                    const backChop = frontChop.split('/');
+                    baseURL = backChop[0];
+                }
             
-            $("#recipe-display").append(recipeDiv);
+                const recipeDiv = $('<div class="card mb-4" style="width: 12rem;">');
+                const recipeTextWrapper1 = $('<div class="card-body text-center">');
+                const recipeSite = $(`<p class='small'>(${baseURL})</p>`)
+                const recipeTitle = $(`<h5 class="card-title pb-1 mb-1 border-bottom border-dark">${recipeName}</h5>`);
+                const recipeImage = $(`<img src=${recipeImg} class='card-img-top'>`);
+                const recipeLink = $(`<a target="_blank" href=${recipeURL} class="btn btn-primary">Get Recipe</a>`);
+            
+                // Appending the stuff
+                recipeDiv.append(recipeImage);
+                recipeDiv.append(recipeTextWrapper1);
+                recipeTextWrapper1.append(recipeTitle);
+                recipeTextWrapper1.append(recipeSite);
+                recipeDiv.append(recipeLink) 
+                
+                $("#recipe-display").append(recipeDiv);
           }     
       });
     }
