@@ -64,6 +64,20 @@ body {
     .heading {
         font-size: 5rem;
     }
+    .footer {
+        left: 0;
+        bottom: 0;
+        height: 30px;
+        width: 100%;
+        background-color: #E6E6E5;
+        text-align: center; 
+     }
+     #footer-text {
+         display: inline-block;
+         font-size: 1rem;
+         color: black;
+         
+     }
 
 }
 
