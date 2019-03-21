@@ -4,6 +4,7 @@ $(document).ready(function() {
     function displayRecipes() {
 
         event.preventDefault();
+
         $('#primary-ing').text('Primary ingredient').css('color', 'black');
         $('#recipe-display').empty();
 
@@ -36,6 +37,14 @@ $(document).ready(function() {
             method: "GET"
         }).then(function(response) {
             
+            const recipeTop = $('#recipe-display').position().top;
+                           
+            $('html, body').animate(
+                {
+                scrollTop: recipeTop
+                },
+                900
+            );
             // Creating elements to hold the stuff         //var pOne = $("<p>").text("Rating: " + rating);
             for (let j=0; j < response.hits.length; j++){
         
@@ -82,15 +91,6 @@ $(document).ready(function() {
     function marketQuery() {
         event.preventDefault();
 
-        const zipBottom = $('#zip-form').position().top;
-                           
-        $('html, body').animate(
-            {
-            scrollTop: zipBottom
-            },
-            900
-        );
-
         const zip = $('#zip-code-input').val();
         
         if(zip.length === 5) {
@@ -108,6 +108,15 @@ $(document).ready(function() {
                     if(results.results[0].id === 'Error') {
                         $('.zip-label').text(results.results[0].marketname).css('color', 'red');
                     } else {
+
+                        const mapTop = $('#markets-div').position().top;
+                           
+                        $('html, body').animate(
+                            {
+                            scrollTop: mapTop
+                            },
+                            900
+                        );
 
                         let newMap
                         const newMapDiv = $('<div>').addClass('col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 rounded border').attr('id', 'market-map').css('height', '400px');
