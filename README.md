@@ -1,21 +1,24 @@
 # **Fresh Farm Recipes**
+
 Fresh Farm Recipes is a front-end application relying primarily on two APIs to provide recipe suggestions to any user, based on up to three fresh ingredients they can submit as search parameters. The application also provides the locations and schedules of nearby farmers markets where ingredients can be obtained, based on a zip code submitted by the user.
 
 # Table of Contents
 
-* ### [Dependencies](https://github.com/geoffdgeorge/Fresh-Farm-Recipes/tree/develop#dependencies-1)
-* ### [How It Works](https://github.com/geoffdgeorge/Fresh-Farm-Recipes/tree/develop#how-it-works-1)
-* ### [Future Plans](https://github.com/geoffdgeorge/Fresh-Farm-Recipes/tree/develop#future-plans-1)
+- ### [Dependencies](https://github.com/geoffdgeorge/Fresh-Farm-Recipes/tree/master#dependencies-1)
+- ### [How It Works](https://github.com/geoffdgeorge/Fresh-Farm-Recipes/tree/master#how-it-works-1)
+- ### [Future Plans](https://github.com/geoffdgeorge/Fresh-Farm-Recipes/tree/master#future-plans-1)
+  - ##### [Randomly Selected Recipes](https://github.com/geoffdgeorge/Fresh-Farm-Recipes/tree/master#randomly-selected-recipes-1)
+  - ##### [Limit Market Search by Distance](https://github.com/geoffdgeorge/Fresh-Farm-Recipes/tree/master#limit-market-search-by-distance-1)
 
 # Dependencies
 
 The Fresh Farm Recipes app relies on two APIs and three libraries:
 
-* [The Edamam API](https://developer.edamam.com/) (which returns recipes based on provided ingredients)
-* [The USDA Farmers Market API](https://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html) (which returns the locations and schedules of more than 8,600 registered farmers markets across the US)
-* [jQuery](https://jquery.com/) (to power the site's front-end functionality, including the AJAX requests to the two APIs)
-* [Leaflet](https://leafletjs.com/) (to build and populate the map displaying the names, addresses, and schedules of nearby farmers markets)
-* [Bootstrap](https://getbootstrap.com/) (to rapidly and uniformly build out the app's HTML/CSS)
+- [The Edamam API](https://developer.edamam.com/) (which returns recipes based on provided ingredients)
+- [The USDA Farmers Market API](https://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html) (which returns the locations and schedules of more than 8,600 registered farmers markets across the US)
+- [jQuery](https://jquery.com/) (to power the site's front-end functionality, including the AJAX requests to the two APIs)
+- [Leaflet](https://leafletjs.com/) (to build and populate the map displaying the names, addresses, and schedules of nearby farmers markets)
+- [Bootstrap](https://getbootstrap.com/) (to rapidly and uniformly build out the app's HTML/CSS)
 
 # How It Works
 
@@ -39,3 +42,11 @@ const marker = L.marker([lon, lat]).addTo(newMap);
 The map is then centered on the marker for the closest market.
 
 # Future Plans
+
+## Randomly Selected Recipes
+
+Currently, the app returns only the top five search results. While limiting the page to five results works nicely visually, a future version of the app should return five random results with each click, so that the user gets new suggestions every time.
+
+## Limit Market Search by Distance
+
+Currently, the app shows a map of the nearest farmers markets and a list with the distance to each farmers market. A future version of the app will allow the user to limit the search by distance, so that only markets within a set radius are shown.
