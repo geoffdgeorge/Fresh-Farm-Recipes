@@ -45,7 +45,7 @@ $(document).ready(function() {
                 },
                 900
             );
-            // Creating elements to hold the stuff         //var pOne = $("<p>").text("Rating: " + rating);
+            // Creating elements to hold the stuff
             for (let j=0; j < response.hits.length; j++){
         
                 let recipeName = response.hits[j].recipe.label;
@@ -123,7 +123,6 @@ $(document).ready(function() {
                         const newMarketsDiv = $('<div>').addClass('p-2 col-12 col-sm-10 col-md-11 col-lg-11 col-xl-11 mt-4 mb-4 rounded border').attr('id', 'market-display');
                         const secondQueryURL = 'https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=' + results.results[0].id
 
-                        /* Inspiration for nested AJAX call was taken from the following source: https://stackoverflow.com/questions/10089447/jquery-ajax-request-inside-ajax-request */
                         $.ajax({
                             type: 'GET',
                             url: secondQueryURL,
@@ -172,8 +171,6 @@ $(document).ready(function() {
                                     const marker = L.marker([lon, lat]).addTo(newMap);
 
                                     const marketAddress = secondaryResults.marketdetails.Address;
-
-                                    /* Inspiration for finding and replacing portions of a string via regular expressions was taken from this source: https://stackoverflow.com/questions/31324905/delete-substring-from-string-using-regexp-in-javascript */
                                     const marketSchedule = secondaryResults.marketdetails.Schedule.replace(/( <br> <br> <br> )/g,'').replace(/(;<br> <br> <br> )/g,'').replace(/(;<br> <br> )/g,'');
                                     const newAddress = $('<p>');
                                     const newSchedule = $('<p>');
