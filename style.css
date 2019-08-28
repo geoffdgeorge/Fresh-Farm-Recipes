@@ -1,87 +1,82 @@
 /* General Styling */
 
 body {
-    background: url(Images/agriculture-barn-countryside-1198507.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+	background: url(Images/agriculture-barn-countryside-1198507.jpg) no-repeat
+		center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 @media only screen and (min-width: 320px) {
+	#main-container {
+		width: 100%;
+	}
 
-    #main-container {
-        width: 100%
-    }
+	/* Header Styling */
 
-    /* Header Styling */
+	.heading {
+		font-family: 'Amatic SC', cursive;
+		text-align: center;
+		font-size: 3rem;
+	}
 
-    .heading {
-        font-family: 'Amatic SC', cursive;
-        text-align: center;
-        font-size: 3rem;
-    }
+	.logo {
+		width: 250px;
+		height: 130px;
+	}
 
-    .logo {
-         width: 250px;
-         height: 130px; 
-    }
+	/* Ingredients Row Styling */
 
-    /* Ingredients Row Styling */
+	#intro-graph {
+		background: rgba(255, 255, 255, 0.7);
+	}
 
-    #intro-graph {
-        background: rgba(255, 255, 255, .7);
-    }
+	#ingredient-form {
+		background: rgba(255, 255, 255, 0.7);
+	}
 
-    #ingredient-form {
-        background: rgba(255, 255, 255, .7);
-    }
+	.ing-label {
+	}
 
-    .ing-label {
-        
-    }
+	/* Zip Row Styling */
 
-    /* Zip Row Styling */
+	#zip-form {
+		background: rgba(255, 255, 255, 0.7);
+	}
 
-    #zip-form {
-        background: rgba(255, 255, 255, .7);
-    }
+	#zip-graph {
+		background: rgba(255, 255, 255, 0.7);
+	}
 
-    #zip-graph {
-        background: rgba(255, 255, 255, .7);
-    }
+	/* Market Display Styling */
 
-    /* Market Display Styling */
+	#market-map {
+		height: 400px;
+	}
 
-    #market-map {
-        height: 400px;
-    }
+	#market-display {
+		background: rgba(255, 255, 255, 0.7);
+	}
 
-    #market-display {
-        background: rgba(255, 255, 255, .7);
-    }
+	/* Footer Styling */
 
-    /* Footer Styling */
+	.footer {
+		height: 30px;
+		width: 100%;
+		background-color: #e6e6e5;
+	}
 
-    .footer {
-        height: 30px;
-        width: 100%;
-        background-color: #E6E6E5;
-     }
-
-     #footer-text {
-         display: inline-block;
-         font-size: 1rem;
-         color: black;
-     }
-
+	#footer-text {
+		display: inline-block;
+		font-size: 1rem;
+		color: black;
+	}
 }
 
 @media only screen and (min-width: 480px) {
-
-    .heading {
-        font-size: 5rem;
-    }
-
+	.heading {
+		font-size: 5rem;
+	}
 }
-
